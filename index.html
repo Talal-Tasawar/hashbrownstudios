@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hashbrown Studios — Websites That Actually Sell</title>
+<meta name="description" content="Hashbrown Studios builds fast, high-converting websites for Pakistani businesses. Interactive menus, WhatsApp integration, Google Maps, and fully responsive design.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 40 40%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%2240%22 y2=%2240%22><stop offset=%220%22 stop-color=%22%23F2C879%22/><stop offset=%221%22 stop-color=%22%23C16E2F%22/></linearGradient></defs><rect width=%2240%22 height=%2240%22 rx=%2214%22 fill=%22url(%23g)%22/><g stroke=%22%231C120A%22 stroke-opacity=%220.28%22 stroke-width=%222%22><path d=%22M-4 14 L20 38 M4 4 L36 36 M14 -4 L44 26%22/></g><ellipse cx=%2231%22 cy=%2231%22 rx=%224.2%22 ry=%223.4%22 fill=%22%23C16E2F%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;0,900;1,600;1,900&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-dark:#1C120A;
+    --bg-darker:#140C07;
+    --cream:#FFF6E9;
+    --cream-dim:#EFE2CC;
+    --gold:#E8A33D;
+    --gold-soft:#F2C879;
+    --gold-deep:#C16E2F;
+    --ink:#241509;
+    --whatsapp:#25D366;
+    --whatsapp-deep:#1DA851;
+    --line:rgba(255,246,233,0.12);
+    --line-strong:rgba(255,246,233,0.22);
+    --shadow:0 20px 50px rgba(0,0,0,0.35);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg-dark);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:900;
+    line-height:1.05;
+    letter-spacing:-0.01em;
+  }
+  .eyebrow{
+    font-family:'Space Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:2px;
+    background:var(--gold);
+    display:inline-block;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:16px 30px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:16px;
+    cursor:pointer;
+    border:none;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn-whatsapp{
+    background:var(--whatsapp);
+    color:#04220F;
+  }
+  .btn-whatsapp:hover{
+    background:var(--whatsapp-deep);
+    transform:translateY(-3px);
+    box-shadow:0 14px 30px rgba(37,211,102,0.35);
+  }
+  .btn-ghost{
+    background:transparent;
+    color:var(--cream);
+    border:1.5px solid var(--line-strong);
+  }
+  .btn-ghost:hover{
+    border-color:var(--gold);
+    color:var(--gold-soft);
+    transform:translateY(-3px);
+  }
+  .btn-gold{
+    background:var(--gold);
+    color:var(--ink);
+  }
+  .btn-gold:hover{
+    background:var(--gold-soft);
+    transform:translateY(-3px);
+    box-shadow:0 14px 30px rgba(232,163,61,0.3);
+  }
+
+  /* ---------- Announcement bar ---------- */
+  .announce{
+    background:var(--bg-darker);
+    border-bottom:1px solid var(--line);
+    text-align:center;
+    padding:10px 20px;
+    font-family:'Space Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.03em;
+    color:var(--cream-dim);
+  }
+  .announce b{color:var(--gold);}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(28,18,10,0.86);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .logo-icon{
+    width:40px;height:40px;
+    flex-shrink:0;
+    position:relative;
+    border-radius:58% 42% 51% 49% / 46% 40% 60% 54%;
+    background:
+      repeating-linear-gradient(48deg, rgba(28,18,10,0.22) 0 2px, transparent 2px 8px),
+      repeating-linear-gradient(-42deg, rgba(28,18,10,0.14) 0 2px, transparent 2px 8px),
+      linear-gradient(155deg, var(--gold-soft), var(--gold-deep));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -6px 10px rgba(0,0,0,0.2), 0 6px 14px rgba(0,0,0,0.3);
+  }
+  .logo-icon::after{
+    content:"";
+    position:absolute;
+    width:9px;height:7px;
+    right:3px; bottom:5px;
+    background:var(--gold-deep);
+    border-radius:60% 40% 55% 45%;
+    box-shadow:inset 0 0 0 1px rgba(28,18,10,0.15);
+  }
+  .logo-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1;
+  }
+  .logo .mark{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:900;
+    font-size:22px;
+    color:var(--cream);
+  }
+  .logo .sub{
+    font-family:'Space Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.25em;
+    color:var(--gold-deep);
+    margin-top:3px;
+  }
+  .nav-links{
+    display:flex;
+    gap:36px;
+    align-items:center;
+  }
+  .nav-links a{
+    font-size:14.5px;
+    font-weight:500;
+    color:var(--cream-dim);
+    position:relative;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--gold-soft);}
+  .nav-cta{display:flex;align-items:center;gap:18px;}
+  .nav-cta .btn{padding:11px 22px;font-size:14px;}
+  .menu-toggle{display:none;background:none;border:none;color:var(--cream);font-size:26px;cursor:pointer;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:110px 0 90px;
+    background:
+      linear-gradient(180deg, rgba(28,18,10,0.2), var(--bg-dark) 70%),
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(232,163,61,0.055) 39px, rgba(232,163,61,0.055) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(232,163,61,0.055) 39px, rgba(232,163,61,0.055) 40px);
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    width:640px;height:640px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(232,163,61,0.25), transparent 70%);
+    top:-260px; right:-200px;
+    filter:blur(10px);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;
+    z-index:2;
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:50px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(38px, 5.4vw, 66px);
+    color:var(--cream);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold);
+  }
+  .hero p.lead{
+    margin-top:22px;
+    font-size:18px;
+    max-width:520px;
+    color:var(--cream-dim);
+  }
+  .hero-ctas{
+    display:flex;
+    gap:16px;
+    margin-top:36px;
+    flex-wrap:wrap;
+  }
+  .hero-trust{
+    display:flex;
+    gap:26px;
+    margin-top:44px;
+    flex-wrap:wrap;
+  }
+  .hero-trust div{
+    font-family:'Space Mono',monospace;
+    font-size:12.5px;
+    color:var(--cream-dim);
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .hero-trust div::before{
+    content:"✓";
+    color:var(--whatsapp);
+    font-weight:700;
+  }
+
+  /* Hero visual: fake "menu card" mock */
+  .menu-mock{
+    background:linear-gradient(155deg, #2A1A0E, #1A1108);
+    border:1px solid var(--line-strong);
+    border-radius:22px;
+    padding:26px;
+    box-shadow:var(--shadow);
+    position:relative;
+  }
+  .menu-mock .mm-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px dashed var(--line-strong);
+    padding-bottom:14px;
+    margin-bottom:14px;
+  }
+  .mm-dot{width:9px;height:9px;border-radius:50%;background:var(--gold-deep);display:inline-block;margin-right:6px;}
+  .mm-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:6px;
+  }
+  .mm-tab{
+    background:none;
+    border:1px solid var(--line-strong);
+    color:var(--cream-dim);
+    font-family:'Space Mono',monospace;
+    font-size:11.5px;
+    padding:7px 14px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .mm-tab:hover{border-color:var(--gold);color:var(--gold-soft);}
+  .mm-tab.active{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+
+  .mm-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:14px;
+    padding:13px 0;
+    border-bottom:1px solid var(--line);
+    opacity:0;
+    transform:translateY(10px);
+    animation:mm-in .6s ease forwards;
+    cursor:pointer;
+    transition:background .2s ease;
+  }
+  .mm-row:hover{background:rgba(232,163,61,0.06);}
+  .mm-row:nth-child(2){animation-delay:.15s;}
+  .mm-row:nth-child(3){animation-delay:.3s;}
+  .mm-row:nth-child(4){animation-delay:.45s;}
+  .mm-row:last-child{border-bottom:none;}
+  @keyframes mm-in{to{opacity:1;transform:translateY(0);}}
+  .mm-row h4{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;color:var(--cream);display:flex;align-items:center;gap:8px;}
+  .mm-row p{font-size:12.5px;color:var(--cream-dim);margin-top:3px;max-width:220px;}
+  .mm-price{font-family:'Space Mono',monospace;color:var(--gold-soft);font-size:14px;white-space:nowrap;}
+  .mm-caret{
+    font-size:11px;
+    color:var(--gold);
+    transition:transform .25s ease;
+    display:inline-block;
+  }
+  .mm-row[aria-expanded="true"] .mm-caret{transform:rotate(180deg);}
+  .mm-detail{
+    max-height:0;
+    overflow:hidden;
+    font-size:12.5px;
+    color:var(--cream-dim);
+    max-width:260px;
+    transition:max-height .3s ease, margin .3s ease;
+  }
+  .mm-row[aria-expanded="true"] .mm-detail{
+    max-height:120px;
+    margin-top:8px;
+    padding-top:8px;
+    border-top:1px dashed var(--line-strong);
+  }
+  .mm-row.hidden{display:none;}
+  .mm-badge{
+    position:absolute;
+    top:-14px; left:26px;
+    background:var(--whatsapp);
+    color:#04220F;
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    padding:6px 14px;
+    border-radius:999px;
+    box-shadow:0 8px 18px rgba(37,211,102,0.35);
+  }
+
+  /* ---------- Section shared ---------- */
+  section{padding:110px 0;}
+  .section-head{
+    max-width:640px;
+    margin-bottom:64px;
+  }
+  .section-head h2{
+    font-size:clamp(30px, 3.6vw, 44px);
+    color:var(--cream);
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--cream-dim);
+    font-size:17px;
+  }
+  .center{text-align:center;margin-left:auto;margin-right:auto;}
+
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  /* ---------- Features ---------- */
+  .features{background:var(--bg-darker);}
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+  }
+  .feature-card{
+    background:var(--bg-darker);
+    padding:38px 30px;
+    transition:background .3s ease;
+    position:relative;
+  }
+  .feature-card:hover{background:#1D140B;}
+  .feature-card .ficon{
+    width:44px;height:44px;
+    border-radius:12px;
+    background:rgba(232,163,61,0.12);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:20px;
+    color:var(--gold);
+  }
+  .feature-card h3{
+    font-family:'Inter',sans-serif;
+    font-weight:700;
+    font-size:17px;
+    color:var(--cream);
+    margin-bottom:10px;
+  }
+  .feature-card p{
+    font-size:14.5px;
+    color:var(--cream-dim);
+  }
+
+  /* ---------- Process ---------- */
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:32px;
+    position:relative;
+  }
+  .process-grid::before{
+    content:"";
+    position:absolute;
+    top:26px; left:6%; right:6%;
+    height:1px;
+    background:repeating-linear-gradient(90deg, var(--line-strong) 0 8px, transparent 8px 16px);
+    z-index:0;
+  }
+  .process-step{position:relative; z-index:1;}
+  .process-num{
+    font-family:'Space Mono',monospace;
+    font-size:14px;
+    color:var(--ink);
+    background:var(--gold);
+    width:52px;height:52px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;
+    margin-bottom:22px;
+  }
+  .process-step h3{
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    font-weight:700;
+    color:var(--cream);
+    margin-bottom:10px;
+  }
+  .process-step p{font-size:14.5px;color:var(--cream-dim);}
+
+  /* ---------- Pricing ---------- */
+  .pricing{background:var(--bg-darker);}
+  .price-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+  .price-card{
+    background:linear-gradient(160deg,#241608,#170F07);
+    border:1px solid var(--line-strong);
+    border-radius:22px;
+    padding:42px 36px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+  }
+  .price-card.featured{
+    border-color:var(--gold);
+    box-shadow:0 25px 60px rgba(232,163,61,0.15);
+  }
+  .price-tag-badge{
+    position:absolute;
+    top:-14px; right:36px;
+    background:var(--gold);
+    color:var(--ink);
+    font-family:'Space Mono',monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.05em;
+    padding:6px 16px;
+    border-radius:999px;
+  }
+  .price-card h3{
+    font-family:'Inter',sans-serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--cream);
+  }
+  .price-card .price{
+    font-family:'Space Mono',monospace;
+    font-size:44px;
+    color:var(--gold-soft);
+    margin:18px 0 4px;
+    font-weight:700;
+  }
+  .price-card .price span{font-size:16px;color:var(--cream-dim);font-weight:400;}
+  .price-card .monthly{
+    font-size:13px;
+    color:var(--cream-dim);
+    margin-bottom:28px;
+    font-family:'Space Mono',monospace;
+  }
+  .price-card ul{
+    flex:1;
+    margin-bottom:30px;
+  }
+  .price-card li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    padding:9px 0;
+    border-bottom:1px solid var(--line);
+    font-size:14.5px;
+    color:var(--cream-dim);
+  }
+  .price-card li:last-child{border-bottom:none;}
+  .price-card li::before{
+    content:"✓";
+    color:var(--whatsapp);
+    font-weight:700;
+    flex-shrink:0;
+  }
+  .price-card .btn{width:100%;justify-content:center;}
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    max-width:800px;
+    margin:0 auto;
+  }
+  .faq-item{
+    border-bottom:1px solid var(--line);
+  }
+  .faq-q{
+    width:100%;
+    background:none;
+    border:none;
+    text-align:left;
+    padding:26px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    cursor:pointer;
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    font-size:17px;
+    font-weight:600;
+  }
+  .faq-q .plus{
+    font-family:'Space Mono',monospace;
+    font-size:20px;
+    color:var(--gold);
+    transition:transform .3s ease;
+    flex-shrink:0;
+  }
+  .faq-item.open .faq-q .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease, padding .35s ease;
+    color:var(--cream-dim);
+    font-size:15px;
+    padding-right:40px;
+  }
+  .faq-item.open .faq-a{padding-bottom:24px;}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--bg-darker);}
+  .contact-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:40px;
+    align-items:stretch;
+  }
+  .contact-card{
+    background:linear-gradient(160deg,#241608,#170F07);
+    border:1px solid var(--line-strong);
+    border-radius:22px;
+    padding:40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .contact-card h3{
+    font-family:'Inter',sans-serif;
+    font-size:22px;
+    color:var(--cream);
+    margin-bottom:6px;
+  }
+  .contact-card p.role{
+    font-family:'Space Mono',monospace;
+    font-size:12.5px;
+    color:var(--gold);
+    margin-bottom:26px;
+  }
+  .contact-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 0;
+    border-top:1px solid var(--line);
+    font-size:14.5px;
+  }
+  .contact-row .cicon{
+    width:36px;height:36px;
+    border-radius:10px;
+    background:rgba(232,163,61,0.12);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--gold);
+    flex-shrink:0;
+  }
+  .contact-card .btn{margin-top:26px;width:100%;justify-content:center;}
+  .map-card{
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid var(--line-strong);
+    min-height:340px;
+    position:relative;
+    background:linear-gradient(160deg,#241608,#170F07);
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+  }
+  .map-pattern{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  .map-pin{
+    position:absolute;
+    top:38%;
+    left:52%;
+    transform:translate(-50%,-50%);
+    width:56px;height:56px;
+    border-radius:50%;
+    background:rgba(28,18,10,0.5);
+    border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 26px rgba(0,0,0,0.35);
+  }
+  .map-pin::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:2px solid var(--gold);
+    animation:pulse-ring 2.6s ease-out infinite;
+  }
+  .map-card-info{
+    position:relative;
+    z-index:2;
+    padding:30px 32px 34px;
+    background:linear-gradient(0deg, rgba(20,12,7,0.94) 40%, transparent 100%);
+  }
+  .map-card-info h3{
+    font-family:'Inter',sans-serif;
+    font-size:20px;
+    font-weight:700;
+    color:var(--cream);
+    margin-bottom:8px;
+  }
+  .map-card-info p{
+    font-size:14px;
+    color:var(--cream-dim);
+    margin-bottom:22px;
+    max-width:320px;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--bg-dark);
+    border-top:1px solid var(--line);
+    padding:50px 0 30px;
+  }
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .footer-inner p{font-size:13.5px;color:var(--cream-dim);}
+  .footer-inner .flinks{display:flex;gap:24px;}
+  .footer-inner .flinks a{font-size:13.5px;color:var(--cream-dim);}
+  .footer-inner .flinks a:hover{color:var(--gold-soft);}
+
+  /* ---------- Floating WhatsApp ---------- */
+  .float-whatsapp{
+    position:fixed;
+    bottom:26px; right:26px;
+    z-index:200;
+    width:62px;height:62px;
+    border-radius:50%;
+    background:var(--whatsapp);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 12px 30px rgba(37,211,102,0.45);
+    color:#04220F;
+    transition:transform .25s ease;
+  }
+  .float-whatsapp:hover{transform:scale(1.08);}
+  .float-whatsapp::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    border:2px solid var(--whatsapp);
+    animation:pulse-ring 2.4s ease-out infinite;
+  }
+  @keyframes pulse-ring{
+    0%{transform:scale(1);opacity:.7;}
+    100%{transform:scale(1.7);opacity:0;}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .hero-inner{grid-template-columns:1fr;}
+    .feature-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(2,1fr);row-gap:44px;}
+    .process-grid::before{display:none;}
+    .price-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .nav-links{display:none;}
+    .menu-toggle{display:block;}
+  }
+  @media (max-width:600px){
+    section{padding:72px 0;}
+    .hero{padding:70px 0 60px;}
+    .feature-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .hero-ctas .btn{width:100%;justify-content:center;}
+    .footer-inner{flex-direction:column;text-align:center;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="announce">🔥 <b>Now booking August projects</b> — limited slots to keep every launch fast &amp; polished</div>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">
+        <span class="logo-icon" aria-hidden="true"></span>
+        <span class="logo-text">
+          <span class="mark">Hashbrown</span>
+          <span class="sub">STUDIOS</span>
+        </span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#process">Process</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-whatsapp" href="https://wa.me/923644915188?text=Hi%20Hashbrown%20Studios%2C%20I%27d%20like%20a%20website%20for%20my%20business" target="_blank" rel="noopener">
+          Chat on WhatsApp
+        </a>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div>
+      <div class="eyebrow">Websites for businesses</div>
+      <h1>A website that gets your business <em>chosen</em>, not just seen.</h1>
+      <p class="lead">We're a small web studio based in Islamabad. We build sites for shops, restaurants, and service businesses — the kind you can hand off to a customer without explaining anything.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-whatsapp" href="https://wa.me/923644915188?text=Hi%20Hashbrown%20Studios%2C%20I%27d%20like%20a%20website%20for%20my%20business" target="_blank" rel="noopener">
+          💬 Chat on WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#pricing">See pricing →</a>
+      </div>
+      <div class="hero-trust">
+        <div>Launch in days, not months</div>
+        <div>Built &amp; hosted for you</div>
+        <div>Real human support</div>
+      </div>
+    </div>
+
+    <div class="menu-mock">
+      <span class="mm-badge">Interactive Menu</span>
+      <div class="mm-top">
+        <span><span class="mm-dot"></span><span class="mm-dot" style="background:var(--gold)"></span><span class="mm-dot" style="background:var(--whatsapp)"></span></span>
+        <span style="font-family:'Space Mono',monospace;font-size:11px;color:var(--cream-dim)">yourbusiness.com</span>
+      </div>
+
+      <div class="mm-tabs" role="tablist">
+        <button class="mm-tab active" data-filter="all" role="tab">All</button>
+        <button class="mm-tab" data-filter="setup" role="tab">Setup</button>
+        <button class="mm-tab" data-filter="care" role="tab">Care</button>
+      </div>
+
+      <div class="mm-row" data-cat="setup" tabindex="0" role="button" aria-expanded="false">
+        <div>
+          <h4>Starter Setup <span class="mm-caret">▾</span></h4>
+          <p>Everything a new business needs to look legit online</p>
+          <div class="mm-detail">Custom design, WhatsApp button, Google Maps, domain &amp; hosting setup, two revisions included.</div>
+        </div>
+        <div class="mm-price">Rs 25,000</div>
+      </div>
+
+      <div class="mm-row" data-cat="setup" tabindex="0" role="button" aria-expanded="false">
+        <div>
+          <h4>Growth Package <span class="mm-caret">▾</span></h4>
+          <p>SEO foundations, extra pages, priority support</p>
+          <div class="mm-detail">Everything in Starter, plus advanced animations, extra pages, meta descriptions, sitemap &amp; Search Console setup.</div>
+        </div>
+        <div class="mm-price">Rs 35,000</div>
+      </div>
+
+      <div class="mm-row" data-cat="care" tabindex="0" role="button" aria-expanded="false">
+        <div>
+          <h4>Monthly Care <span class="mm-caret">▾</span></h4>
+          <p>Updates, fixes &amp; management, hands-off for you</p>
+          <div class="mm-detail">Hosting upkeep, content updates, small fixes, and security monitoring — billed monthly, cancel anytime.</div>
+        </div>
+        <div class="mm-price">Rs 4,500/mo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">What you get</div>
+      <h2>Built to be used, not just admired</h2>
+      <p>Every Hashbrown site ships with the essentials that actually move a visitor toward messaging you — plus a few things most cheap website guys skip.</p>
+    </div>
+    <div class="feature-grid">
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 5h16M4 12h16M4 19h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Interactive menu</h3>
+        <p>A clean, tappable menu or service list your customers can actually browse — no PDF, no zooming in on a photo.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 10-14.9 4L4 21l5.1-1.1A8 8 0 0020 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>WhatsApp integration</h3>
+        <p>One tap and a customer is chatting with you directly. No forms to fill, no waiting — the button people actually use in Pakistan.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <h3>Google Maps integration</h3>
+        <p>Your exact location, embedded and tappable, so customers can get directions without leaving your site.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Fully responsive design</h3>
+        <p>Looks sharp on the phone it'll actually be viewed on, and just as sharp on desktop.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Fast load speed</h3>
+        <p>Optimized images and clean code so your site opens instantly — slow sites lose customers before they even see your work.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>SEO foundations</h3>
+        <p>Page titles, meta descriptions and a sitemap so search engines can actually find and rank your business.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17 8a3 3 0 100-6 3 3 0 000 6zM7 15a3 3 0 100-6 3 3 0 000 6zm10 6a3 3 0 100-6 3 3 0 000 6zM9.6 13.5l4.8-4M9.6 10.5l4.8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Social media integration</h3>
+        <p>Instagram, Facebook and TikTok links placed where people expect them, so your following and your site work together.</p>
+      </div>
+
+      <div class="feature-card reveal">
+        <div class="ficon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 20V10M10 20V4M17 20v-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Google Search Console</h3>
+        <p>Set up from day one, so you can see how people are finding you and fix issues before they cost you visitors.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">How it works</div>
+      <h2>From "we need a website" to live in about a week</h2>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <h3>Discovery call</h3>
+        <p>Quick WhatsApp chat about your business, your customers, and what the site needs to do for you.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">02</div>
+        <h3>Design &amp; build</h3>
+        <p>We design and build your site around your brand — menu, WhatsApp button, map, all wired up.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">03</div>
+        <h3>Review &amp; revise</h3>
+        <p>You review the live preview and request changes. Revisions included, so it gets fixed until it's right.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-num">04</div>
+        <h3>Launch &amp; support</h3>
+        <p>Domain and hosting go live under your name, and monthly care keeps everything running smoothly after.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">Pricing</div>
+      <h2>Simple pricing, no surprise invoices</h2>
+      <p>One-time setup fee to build and launch your site, plus a small monthly fee to keep it fast, updated and online.</p>
+    </div>
+    <div class="price-grid">
+
+      <div class="price-card reveal">
+        <h3>Business</h3>
+        <div class="price">Rs 25,000</div>
+        <div class="monthly">+ Rs 4,500/mo management</div>
+        <ul>
+          <li>Custom website design</li>
+          <li>Responsive design</li>
+          <li>WhatsApp integration</li>
+          <li>Google Maps integration</li>
+          <li>Domain setup</li>
+          <li>Hosting setup</li>
+          <li>Two rounds of revisions</li>
+        </ul>
+        <a class="btn btn-gold" href="https://wa.me/923644915188?text=Hi%2C%20I%27m%20interested%20in%20the%20Business%20Package%20(Rs%2025%2C000)" target="_blank" rel="noopener">Get started</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <span class="price-tag-badge">Most popular</span>
+        <h3>Premium</h3>
+        <div class="price">Rs 35,000</div>
+        <div class="monthly">+ Rs 4,500/mo management</div>
+        <ul>
+          <li>Everything in Business</li>
+          <li>Advanced animations</li>
+          <li>Additional pages</li>
+          <li>Priority support</li>
+          <li>Page titles &amp; meta descriptions</li>
+          <li>Sitemap generation</li>
+          <li>Google Search Console setup</li>
+        </ul>
+        <a class="btn btn-whatsapp" href="https://wa.me/923644915188?text=Hi%2C%20I%27m%20interested%20in%20the%20Premium%20Package%20(Rs%2035%2C000)" target="_blank" rel="noopener">Get started</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-head center reveal">
+      <div class="eyebrow">FAQ</div>
+      <h2>Good questions to ask before you say yes</h2>
+    </div>
+    <div class="faq-list reveal">
+
+      <div class="faq-item">
+        <button class="faq-q">How long does a project take? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Most sites go from kickoff to live in about a week, depending on how quickly we get your content and feedback back and forth.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How many revisions are included? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Both packages include two rounds of revisions after the first draft, so you can fine-tune the design and copy before launch. Extra revision rounds can be added if needed.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">What is included in the monthly fee? <span class="plus">+</span></button>
+        <div class="faq-a"><p>The Rs 4,500/month covers hosting upkeep, content updates, small fixes, security monitoring and general management — so you're not the one troubleshooting your own website.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Is hosting included? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes. We set up your domain and hosting as part of both packages, and the monthly fee keeps it maintained and online.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">Do I own the website? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Yes — the domain and website are registered in your business's name. We manage it for you, but it's yours.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">How do I get started? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Message us on WhatsApp with your business name and what you're looking for, and we'll set up a quick call to scope it out.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow">Get in touch</div>
+      <h2>Let's get your business online</h2>
+    </div>
+    <div class="contact-grid">
+
+      <div class="contact-card reveal">
+        <div>
+          <h3>Talal Tasawar</h3>
+          <p class="role">Founder, Hashbrown Studios</p>
+
+          <div class="contact-row">
+            <span class="cicon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 10-14.9 4L4 21l5.1-1.1A8 8 0 0020 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            </span>
+            <span>0364 4915188</span>
+          </div>
+          <div class="contact-row">
+            <span class="cicon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M3 7l9 6 9-6" stroke="currentColor" stroke-width="2"/></svg>
+            </span>
+            <span>talaltasawar88@gmail.com</span>
+          </div>
+        </div>
+        <a class="btn btn-whatsapp" href="https://wa.me/923644915188?text=Hi%20Talal%2C%20I%27d%20like%20to%20talk%20about%20a%20website%20for%20my%20business" target="_blank" rel="noopener">💬 Message on WhatsApp</a>
+      </div>
+
+      <div class="map-card reveal">
+        <svg class="map-pattern" viewBox="0 0 400 340" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="340" fill="none"/>
+          <g stroke="rgba(232,163,61,0.18)" stroke-width="1">
+            <path d="M0 60 H400 M0 130 H400 M0 200 H400 M0 270 H400"/>
+            <path d="M70 0 V340 M150 0 V340 M240 0 V340 M320 0 V340"/>
+          </g>
+          <path d="M0 210 C 90 150, 160 230, 400 140" stroke="rgba(232,163,61,0.35)" stroke-width="2.5" fill="none"/>
+        </svg>
+        <div class="map-pin">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="#1C120A" stroke-width="2" fill="var(--gold)"/><circle cx="12" cy="9" r="2.4" fill="#1C120A"/></svg>
+        </div>
+        <div class="map-card-info">
+          <div class="eyebrow" style="margin-bottom:8px;">Find us</div>
+          <h3>G-11, Islamabad</h3>
+          <p>Serving clients across Islamabad, Rawalpindi &amp; remotely, all over Pakistan.</p>
+          <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=G-11%2C+Islamabad%2C+Pakistan" target="_blank" rel="noopener">📍 Get directions</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <p>© <span id="year"></span> Hashbrown Studios. Built by Talal Tasawar.</p>
+    <div class="flinks">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="mailto:talaltasawar88@gmail.com">Email</a>
+      <a href="https://wa.me/923644915188" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<a class="float-whatsapp" href="https://wa.me/923644915188?text=Hi%20Hashbrown%20Studios%2C%20I%27d%20like%20a%20website%20for%20my%20business" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 12a8 8 0 10-14.9 4L4 21l5.1-1.1A8 8 0 0020 12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Hero interactive menu: tab filter
+  document.querySelectorAll('.mm-tab').forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      document.querySelectorAll('.mm-tab').forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('.menu-mock .mm-row').forEach(row=>{
+        const match = filter==='all' || row.dataset.cat===filter;
+        row.classList.toggle('hidden', !match);
+      });
+    });
+  });
+
+  // Hero interactive menu: expandable rows
+  document.querySelectorAll('.menu-mock .mm-row').forEach(row=>{
+    const toggleRow = ()=>{
+      const expanded = row.getAttribute('aria-expanded') === 'true';
+      row.setAttribute('aria-expanded', String(!expanded));
+    };
+    row.addEventListener('click', toggleRow);
+    row.addEventListener('keydown', (e)=>{
+      if(e.key==='Enter' || e.key===' '){
+        e.preventDefault();
+        toggleRow();
+      }
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other=>{
+        if(other!==item){
+          other.classList.remove('open');
+          other.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        item.classList.remove('open');
+        a.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // Mobile menu toggle -> simple: scroll links become a dropdown
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggle.addEventListener('click', ()=>{
+    const open = navLinks.style.display === 'flex';
+    navLinks.style.display = open ? 'none' : 'flex';
+    navLinks.style.cssText += open ? '' : 'position:absolute;top:100%;left:0;right:0;background:#1C120A;flex-direction:column;padding:20px 28px;gap:18px;border-bottom:1px solid rgba(255,246,233,0.12);';
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('in-view');
+        observer.unobserve(e.target);
+      }
+    });
+  }, {threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+
+</body>
+</html>
